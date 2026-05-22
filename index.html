@@ -1078,8 +1078,8 @@
     const name = document.querySelectorAll('.form-input')[0].value || 'Someone';
     const email = document.querySelectorAll('.form-input')[1].value || '';
     const message = document.querySelector('.form-textarea').value || '';
-    const subject = encodeURIComponent('Portfolio Enquiry from ' + name);
-    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+    const subject = encodeURIComponent('Portfolio Enquiry by ' + name + ' - ' + email);
+    const body = encodeURIComponent('Message: ' + message);
     window.location.href = 'mailto:dhrvkanther1@gmail.com?subject=' + subject + '&body=' + body;
   });
 </script>
