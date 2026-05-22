@@ -1072,18 +1072,15 @@
     document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
   }, 100);
 
-  // Contact form (cosmetic)
-  document.querySelector('.btn-primary').addEventListener('click', function(e) {
-    if (this.closest('.contact-form')) {
-      e.preventDefault();
-      const orig = this.textContent;
-      this.textContent = 'Message Sent ✓';
-      this.style.background = '#00ffb3';
-      setTimeout(() => {
-        this.textContent = orig;
-        this.style.background = '';
-      }, 3000);
-    }
+  // Contact form with mailto
+  document.querySelector('.contact-form a.btn-primary').addEventListener('click', function(e) {
+    e.preventDefault();
+    const name = document.querySelectorAll('.form-input')[0].value || 'Someone';
+    const email = document.querySelectorAll('.form-input')[1].value || '';
+    const message = document.querySelector('.form-textarea').value || '';
+    const subject = encodeURIComponent('Portfolio Enquiry from ' + name);
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+    window.location.href = 'mailto:dhrvkanther1@gmail.com?subject=' + subject + '&body=' + body;
   });
 </script>
 </body>
